@@ -1,0 +1,40 @@
+# randomly generate 8 numbers between 0 and 90; no number repeat.
+
+import random
+
+def randomizer():
+  rand_number = random.sample(range(0, 90), 8)
+  return rand_number
+
+# allocate each number in a 2D list; center of the card is the word BINGO.
+# a variable to store the 9 random numbers generated.
+bingoNumber = randomizer()
+
+bingoList = [[bingoNumber[0], bingoNumber[1], bingoNumber[2]],
+            [bingoNumber[3], "BINGO", bingoNumber[4]],
+            [bingoNumber[5], bingoNumber[6], bingoNumber[7]]]
+
+
+# Allocate each number in a 2D list; center of the card is the word BINGO.
+# A variable to store the 9 random numbers generated.
+bingoNumbers = randomizer()
+
+bingoList = [[bingoNumbers[0], bingoNumbers[1], bingoNumbers[2]],
+             [bingoNumbers[3], "BINGO", bingoNumbers[4]],
+             [bingoNumbers[5], bingoNumbers[6], bingoNumbers[7]]]
+
+# Create a 3x3 2D list with each element initialized to the list of random numbers
+# Print the BINGO card with proper alignment and lines
+def print_bingo_card(card):
+  print("\033[32mBingo Card Generator\033[0m")
+  print("+-----+-----+-----+-----+")
+  for row in card:
+    print("|", end="")
+    for col in row:
+      if col == "BINGO":
+        print("{:^7}".format(col), end="|")
+      else:
+        print("{:^7}".format(col), end="|")
+    print("\n+-----+-----+-----+-----+")
+
+print_bingo_card(bingoList)
